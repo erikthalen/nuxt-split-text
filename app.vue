@@ -10,7 +10,10 @@ const progress = ref(0)
 
     <p>{{ progress }}</p>
 
-    <rich-text :text="text" :progress="progress" />
+    <!-- has to be one single element passed to stagger-text -->
+    <stagger-text :progress="progress">
+      <rich-text :text="text" />
+    </stagger-text>
   </div>
 </template>
 
@@ -19,21 +22,5 @@ input {
   margin-bottom: 30px;
   position: relative;
   z-index: 1;
-}
-
-p {
-  max-width: 20em;
-  font-size: 26px;
-  line-height: 1.4;
-}
-
-.big {
-  font-size: 38px;
-  line-height: 1.2;
-}
-
-.small {
-  font-size: 16px;
-  line-height: 1.6;
 }
 </style>
